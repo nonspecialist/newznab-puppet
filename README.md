@@ -19,3 +19,6 @@ How do I install it?
   1 cd into the top level directory
   1 run (as root):
     * puppet apply --modulepath=$( pwd )/modules manifests/init.pp
+    * want to see what puppet is going to do, without doing it?
+      * puppet apply --noop --modulepath=$( pwd )/modules manifests/init.pp
+
