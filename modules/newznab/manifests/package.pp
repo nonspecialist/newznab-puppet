@@ -5,6 +5,7 @@ class newznab::package {
     "php-gd",
     "php-pear",
     "mysql",
+    "mysql-server",
     "httpd",
     "unrar",
     "ffmpeg",
