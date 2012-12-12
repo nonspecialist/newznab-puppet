@@ -1,3 +1,3 @@
 class newznab::defaults {
-  # no defaults yet
+  $execution_timeout = 90
 }

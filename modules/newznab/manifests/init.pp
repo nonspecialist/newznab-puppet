@@ -1,5 +1,6 @@
-class newznab 
-inherits newznab::defaults {
+class newznab (
+  $execution_timeout = $newznab::defaults::execution_timeout
+) inherits newznab::defaults {
   class { 'newznab::repos': }
 
   class { 'newznab::package': 
