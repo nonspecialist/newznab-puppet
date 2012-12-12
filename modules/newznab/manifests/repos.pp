@@ -13,6 +13,7 @@ class newznab::repos {
 
   exec { 'install rpmfusion-free-release':
     command => "/usr/bin/yum localinstall -y -d 0 -e 0 /var/tmp/$rpmfusion_free_pkg",
+    unless  => "/bin/rpm -q --quiet rpmfusion-free-release",
     require => Exec['fetch-rpmfusion-free-rpm']
   }
 
@@ -23,6 +24,7 @@ class newznab::repos {
 
   exec { 'install rpmfusion-nonfree-release':
     command => "/usr/bin/yum localinstall -y -d 0 -e 0 /var/tmp/$rpmfusion_nonfree_pkg",
+    unless  => "/bin/rpm -q --quiet rpmfusion-nonfree-release",
     require => Exec['fetch-rpmfusion-nonfree-rpm']
   }
 
