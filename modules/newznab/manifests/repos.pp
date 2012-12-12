@@ -11,10 +11,9 @@ class newznab::repos {
     command => "/usr/bin/curl -o /var/tmp/$rpmfusion_free_pkg http://download1.rpmfusion.org/free/el/updates/6/$architecture/$rpmfusion_free_pkg"
   }
 
-  package { 'rpmfusion-free-release':
-    ensure      => installed,
-    source      => "/var/tmp/$rpmfusion_free_pkg",
-    require     => Exec['fetch-rpmfusion-free-rpm']
+  exec { 'install rpmfusion-free-release':
+    command => "/usr/bin/yum localinstall -y -d 0 -e 0 /var/tmp/$rpmfusion_free_pkg",
+    require => Exec['fetch-rpmfusion-free-rpm']
   }
 
   exec { 'fetch-rpmfusion-nonfree-rpm':
@@ -22,10 +21,9 @@ class newznab::repos {
     command => "/usr/bin/curl -o /var/tmp/$rpmfusion_nonfree_pkg http://download1.rpmfusion.org/nonfree/el/updates/6/$architecture/$rpmfusion_nonfree_pkg"
   }
 
-  package { 'rpmfusion-nonfree-release':
-    ensure      => installed,
-    source      => "/var/tmp/$rpmfusion_nonfree_pkg",
-    require     => Exec['fetch-rpmfusion-nonfree-rpm']
+  exec { 'install rpmfusion-nonfree-release':
+    command => "/usr/bin/yum localinstall -y -d 0 -e 0 /var/tmp/$rpmfusion_nonfree_pkg",
+    require => Exec['fetch-rpmfusion-nonfree-rpm']
   }
 
 }
