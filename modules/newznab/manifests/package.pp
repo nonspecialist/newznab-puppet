@@ -4,6 +4,7 @@ class newznab::package {
     "php",
     "php-gd",
     "php-pear",
+    "openssl",
     "mysql",
     "mysql-server",
     "httpd",
