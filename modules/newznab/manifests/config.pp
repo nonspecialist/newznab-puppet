@@ -13,13 +13,13 @@ class newznab::config {
     group   => root,
     mode    => '0644',
     content => template('newznab/my.cnf.erb'),
-    notify  => Exec['initialize mysql']
+    notify  => Service['mysqld']
   }
 
   exec { 'initialize mysql':
     command => '/usr/bin/mysql_install_db --user=mysql --force --skip-name-resolve',
     require => File['/etc/my.cnf'],
-    refreshonly => true
+    creates => '/var/lib/mysql/mysql',
   }
 
   file { '/etc/httpd/conf/httpd.conf':
