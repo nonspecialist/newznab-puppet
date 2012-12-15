@@ -5,4 +5,5 @@ class newznab::defaults {
   $newznab_base      = "/var/www"
   $newznab_root      = "$newznab_base/$newznab_dir"
   $newznab_dist      = "newznab-$newznab_version.zip"
+  $newznab_password  = "Vp3,Z9x%r2"
 }

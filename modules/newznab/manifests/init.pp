@@ -14,4 +14,8 @@ class newznab (
   class { 'newznab::service': 
     require => Class['newznab::config']
   }
+
+  class { 'newznab::setup':
+    require => Class['newznab::service']
+  }
 }
