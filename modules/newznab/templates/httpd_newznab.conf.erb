@@ -1,0 +1,18 @@
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+    <Directory <%= newznab_root %>>
+        Options FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+    ServerAdmin admin@example.com
+    ServerName <%= fqdn %>
+    ServerAlias newznab
+    ServerAlias newznab.<%= domain %>
+    DocumentRoot <%= newznab_root %>/www
+    LogLevel warn
+    ServerSignature Off
+</VirtualHost>

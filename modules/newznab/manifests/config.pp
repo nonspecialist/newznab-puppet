@@ -30,4 +30,20 @@ class newznab::config {
     content => template('newznab/httpd.conf.erb'),
     notify  => Service['httpd']
   }
+
+  file { '/etc/httpd/conf.d/newznab.conf':
+    ensure  => present,
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    content => template('newznab/httpd_newznab.conf.erb'),
+    notify  => Service['httpd']
+  }
+
+  file { "$newznab_root/www/lib/smarty/templates_c":
+    ensure => directory,
+    owner  => apache,
+    group  => apache,
+    mode => '0755'
+  }
 }
