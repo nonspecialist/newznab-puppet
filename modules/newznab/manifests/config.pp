@@ -40,10 +40,29 @@ class newznab::config {
     notify  => Service['httpd']
   }
 
-  file { "$newznab_root/www/lib/smarty/templates_c":
+  $writable_dirs = [
+    "$newznab_root/www/lib/smarty/templates_c",
+    "$newznab_root/www/covers/movies",
+    "$newznab_root/www/covers/music",
+    "$newznab_root/www/install",
+    "$newznab_root/nzbfiles"
+  ]
+
+  $writable_files = [
+    "$newznab_root/www/config.php",
+  ]
+
+  file { $writable_dirs:
     ensure => directory,
     owner  => apache,
     group  => apache,
     mode => '0755'
+  }
+
+  file { $writable_files:
+    ensure => present,
+    owner  => apache,
+    group  => apache,
+    mode   => '0644'
   }
 }
