@@ -1,7 +1,9 @@
 What is it?
 ===========
 
-A set of puppet manifests for installing newznab
+A set of puppet manifests for installing newznab. Note that these manifests currently
+work with the free, fully GPLv3 version of newznab. I've just recently got nnplus, and
+I'm adjusting the manifests to cope with that as well.
 
 What do I need?
 ===============
