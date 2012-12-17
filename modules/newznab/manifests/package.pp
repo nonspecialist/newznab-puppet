@@ -41,7 +41,7 @@ class newznab::package {
   }
 
   exec { "install sphinx":
-    command => "/usr/bin/yum localinstall /var/tmp/$sphinx_rpm",
-    unless  => "/usr/bin/rpm -q --quiet sphinx"
+    command => "/usr/bin/yum localinstall -y /var/tmp/$sphinx_rpm",
+    unless  => "/bin/rpm -q --quiet sphinx"
   }
 }
