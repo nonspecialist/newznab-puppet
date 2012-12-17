@@ -15,4 +15,9 @@ class newznab::service {
     value      => on,
     persistent => true
   }
+
+  selboolean { "httpd_can_network_connect":
+    value      => on,
+    persistent => true
+  }
 }
