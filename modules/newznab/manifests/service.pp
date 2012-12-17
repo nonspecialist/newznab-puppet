@@ -9,4 +9,10 @@ class newznab::service {
     ensure => running,
     enable => true
   }
+
+  # make sure httpd can send email
+  selboolean { "httpd_can_sendmail":
+    value      => on,
+    persistent => true
+  }
 }
