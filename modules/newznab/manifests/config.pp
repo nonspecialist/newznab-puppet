@@ -46,7 +46,9 @@ class newznab::config {
     "$newznab_root/www/covers/music",
     "$newznab_root/www/covers/anime",
     "$newznab_root/www/install",
-    "$newznab_root/nzbfiles"
+    "$newznab_root/nzbfiles",
+    "$newznab_root/db/sphinxdata",
+    "$newznab_root/db/sphinxdata/binlog",
   ]
 
   $writable_files = [
