@@ -44,6 +44,7 @@ class newznab::config {
     "$newznab_root/www/lib/smarty/templates_c",
     "$newznab_root/www/covers/movies",
     "$newznab_root/www/covers/music",
+    "$newznab_root/www/covers/anime",
     "$newznab_root/www/install",
     "$newznab_root/nzbfiles"
   ]

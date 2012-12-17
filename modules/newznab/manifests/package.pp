@@ -34,4 +34,14 @@ class newznab::package {
       Package[$newznab_pkgs]
     ]
   }
+
+  exec { "fetch sphinx":
+    command => "/usr/bin/curl -o /var/tmp/$sphinx_rpm $sphinx_url",
+    creates => "/var/tmp/$sphinx_url"
+  }
+
+  exec { "install sphinx":
+    command => "/usr/bin/yum localinstall /var/tmp/$sphinx_rpm",
+    unless  => "/usr/bin/rpm -q --quiet sphinx"
+  }
 }
